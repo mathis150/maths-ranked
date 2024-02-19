@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "917919618062",
+    "firebase_url": "https://testingdatabase-900d8-default-rtdb.firebaseio.com",
+    "project_id": "testingdatabase-900d8",
+    "storage_bucket": "testingdatabase-900d8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:917919618062:android:858b00d61a2ae2c95dd85f",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvOBIUZQXxyC_vy728Uu92KuMkLavvz9Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:917919618062:android:bfe5fb4b14394ced5dd85f",
+        "android_client_info": {
+          "package_name": "fr.mathis150.maths_ranked"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvOBIUZQXxyC_vy728Uu92KuMkLavvz9Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
