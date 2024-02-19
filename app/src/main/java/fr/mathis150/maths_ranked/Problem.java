@@ -21,7 +21,7 @@ public class Problem {
 
         Random generator = new Random(seed);
         for (int i = 0;i < n; i++) {
-
         }
+        return null;
     }
 }
