@@ -1,11 +1,17 @@
 # maths-ranked
 
 [ ] Utilisation de l'Api Preference
+
 [ ] Ecriture/lecture dans un Fichier, usage de InputStream ou OutputStream
+
 [ ] Utilisation de SQLite
+
 [ ] Utilisation de Room
+
 [ ] Utilisation de Firebase
+
 [ ] Nombre d'activités ou fragment supérieur ou égal à 3
+
 [ ] Gestion du bouton Back (message pour confirmer que l'on veut réellement quitter l'application)
 [ ] L'affichage d'une liste avec son adapter
 [ ] L'affichage d'une liste avec un custom adapter (avec gestion d’événement)
