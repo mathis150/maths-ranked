@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="fr.mathis150.maths_ranked" />
+                  <option name="mobileSdkAppId" value="1:917919618062:android:bfe5fb4b14394ced5dd85f" />
+                  <option name="projectId" value="testingdatabase-900d8" />
+                  <option name="projectNumber" value="917919618062" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
