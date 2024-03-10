@@ -10,9 +10,11 @@ public class Problem {
     public String equation;
     public String answer;
 
-    Problem(String equation,String answer) {
-        this.equation = equation;
-        this.answer = answer;
+    private final Random generator;
+
+    Problem(int seed) {
+        this.generator = new Random(seed);
+        generateRandomProblem();
     }
 
     boolean verify(String attempt) {
@@ -20,9 +22,9 @@ public class Problem {
     }
 
     @SuppressLint("DefaultLocale")
-    Problem generateRandomProblem(int seed) {
+    private void generateRandomProblem() {
         int difficulty = 10;
-        Random generator = new Random(seed);
+
         int problemkind = generator.nextInt() % 4;
 
         String equation = "";
@@ -43,6 +45,7 @@ public class Problem {
                 equation = String.format("%s%d%s%d%s%d%s%d","(x - ", sub,") / ",divide," + ",add," = ",((initial - sub)/divide)+add);
         }
 
-        return new Problem(equation,String.valueOf(initial));
+        this.answer = String.valueOf(initial);
+        this.equation = equation;
     }
 }

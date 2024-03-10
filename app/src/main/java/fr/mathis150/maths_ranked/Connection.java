@@ -1,41 +1,56 @@
 package fr.mathis150.maths_ranked;
 
 import android.util.Log;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import org.jetbrains.annotations.NonBlocking;
 
 public class Connection {
 
-    public DatabaseReference matchDatabase;
-    public String lastRead = "null";
+    public CollectionReference database;
 
-    Connection() {
-        matchDatabase = FirebaseDatabase.getInstance().getReference("match");
+    Connection(String col) {
+        database = FirebaseFirestore.getInstance().collection(col);
+    }
 
-        matchDatabase.addValueEventListener(new ValueEventListener() {
+    public void Write(Object data) {
+        database.add(data).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
-                lastRead = dataSnapshot.getValue(String.class);
+            public void onSuccess(DocumentReference documentReference) {
+                Log.d("FireStore", "Successfully pushed data");
             }
+
+        }).addOnFailureListener(new OnFailureListener() {
             @Override
-            public void onCancelled(DatabaseError error) {
-                // Failed to read value
-                Log.w("APPX", "Failed to read value.", error.toException());
+            public void onFailure(@NonNull Exception e) {
+                Log.d("FireStore", "Failed to push data");
             }
         });
     }
 
-    public void Write(String s) {
-        matchDatabase.setValue(s);
+    public Task<QuerySnapshot> FindEloRange(Integer min,Integer max) {
+        return database.whereLessThan("elo",max).whereGreaterThan("elo",min).get();
     }
 
-    public String Read() {
-        return lastRead;
+    public Task<QuerySnapshot> FindUsername(String username) {
+        Log.d("Database","Fetching with username");
+        return database.whereEqualTo("username",username).get();
     }
 }

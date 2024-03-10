@@ -1,7 +1,11 @@
 package fr.mathis150.maths_ranked;
 
 public class User {
-    public int uniqueID;
-    public String username;
-    public int ranking;
+    public String uuid;
+    public Object data;
+
+    User(String docId,Object docData) {
+        uuid = docId;
+        data = docData;
+    }
 }
